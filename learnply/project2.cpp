@@ -315,10 +315,10 @@ void ScalarTopology::drawCriticalPoints(bool use_height)
         switch (cp.type)
         {
         case CRIT_TYPE::MAXIMUM:
-            drawSphere(loc.x, loc.y, loc.z, 0.15, 0.0, 1.0, 0.0);
+            drawSphere(loc.x, loc.y, loc.z, 0.15, 1.0, 0.0, 0.0);
             break;
         case CRIT_TYPE::MINIMUM:
-            drawSphere(loc.x, loc.y, loc.z, 0.15, 1.0, 0.0, 0.0);
+            drawSphere(loc.x, loc.y, loc.z, 0.15, 0.0, 1.0, 0.0);
             break;
         case CRIT_TYPE::SADDLE:
             drawSphere(loc.x, loc.y, loc.z, 0.15, 0.0, 0.0, 1.0);
