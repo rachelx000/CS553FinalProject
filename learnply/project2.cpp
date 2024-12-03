@@ -431,8 +431,8 @@ icVector3 ScalarTopology::getGrayscaleColor(double s)
 
 icVector3 ScalarTopology::getBiColor(double s)
 {
-	icVector3 c1(0.0, 1.0, 0.0);
-	icVector3 c2(1.0, 0.0, 0.0);
+	icVector3 c1(1.0, 0.0, 0.0);
+	icVector3 c2(0.0, 1.0, 0.0);
 
 	double left = (s - scalar_min) / (scalar_max - scalar_min);
 	double right = (scalar_max - s) / (scalar_max - scalar_min);
@@ -443,8 +443,8 @@ icVector3 ScalarTopology::getBiColor(double s)
 icVector3 ScalarTopology::getRainbowColor(double s)
 {
     // pick two colors
-	icVector3 c1(0.0, 0.0, 1.0);
-	icVector3 c2(1.0, 0.0, 0.0);
+	icVector3 c1(1.0, 0.0, 0.0);
+	icVector3 c2(0.0, 0.0, 1.0);
     icVector3 HSVc1, HSVc2;
     RGBtoHSV(HSVc1, c1);
     RGBtoHSV(HSVc2, c2);

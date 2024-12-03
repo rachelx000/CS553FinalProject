@@ -35,8 +35,8 @@ void multi(Polyhedron* poly) {
 		double s_v = vertex->scalar;
 
 		// pick two colors
-		icVector3 c1(0.0, 1.0, 0.0);
-		icVector3 c2(1.0, 0.0, 0.0);
+		icVector3 c1(1.0, 0.0, 0.0);
+		icVector3 c2(0.0, 1.0, 0.0);
 
 		// set the RGB values based on the scalar value of the vertex
 		double left = (s_v - m) / (M - m);
@@ -64,9 +64,9 @@ void heatmap(Polyhedron* poly) {
 
 		// two colors
 		// BLUE
-		icVector3 c1(0.0, 0.0, 1.0);
+		icVector3 c1(1.0, 0.0, 0.0);
 		// RED
-		icVector3 c2(1.0, 0.0, 0.0);
+		icVector3 c2(0.0, 0.0, 1.0);
 		//
 		icVector3 HSVc1, HSVc2;
 		RGBtoHSV(HSVc1, c1);
