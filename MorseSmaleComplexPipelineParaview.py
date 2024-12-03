@@ -3,8 +3,8 @@
 from paraview.simple import *
 
 # Import the PNG image into Paraview
-# FileNames = /path-of-image/name.png
-Image = PNGSeriesReader(FileNames=["/Users/rachelx000/Desktop/CS553FinalProject/data/emd_1654.png"])
+# Please make sure FileNames = /path-of-image/name.png
+Image = PNGSeriesReader(FileNames=["emd_19826.png"])
 
 # Compute the scalar field from the pixel magnitude field of the imported image
 computeDerivatives1 = ComputeDerivatives(Input=Image)
@@ -18,6 +18,16 @@ calculator1.Function = "mag(ScalarGradient)"
 tTKPersistenceDiagram1 = TTKPersistenceDiagram(Input=calculator1)
 tTKPersistenceDiagram1.ScalarField = ["POINTS", "gradient"]
 
+# Extract the axis of the persistence diagram
+axisThreshold = Threshold(Input=tTKPersistenceDiagram1)
+axisThreshold.Scalars = ["CELLS", "PairIdentifier"]
+axisThreshold.ThresholdMethod = "Between"
+axisThreshold.LowerThreshold = -1.0
+axisThreshold.UpperThreshold = -0.1
+extractSurface1 = ExtractSurface(Input=axisThreshold)
+tube1 = Tube(Input=extractSurface1)
+tube1.Radius = 0.3
+
 # Extract the persistence data from the results of the persistence diagram
 threshold1 = Threshold(Input=tTKPersistenceDiagram1)
 threshold1.Scalars = ["CELLS", "PairIdentifier"]
@@ -26,11 +36,17 @@ threshold1.LowerThreshold = 0.0
 threshold1.UpperThreshold = 999999999
 
 # Remove noises from the persistence data (ignore non-persistent features)
+# and extract significant critical points
 persistenceThreshold = Threshold(Input=threshold1)
 persistenceThreshold.Scalars = ["CELLS", "Persistence"]
 persistenceThreshold.ThresholdMethod = "Between"
-persistenceThreshold.LowerThreshold = 10.0
+persistenceThreshold.LowerThreshold = 5.0
 persistenceThreshold.UpperThreshold = 999999999
+tTKIcospheresFromPoints1 = TTKIcospheresFromPoints(Input=persistenceThreshold)
+tTKIcospheresFromPoints1.Radius = 0.8
+extractSurface2 = ExtractSurface(Input=persistenceThreshold)
+tube2 = Tube(Input=extractSurface2)
+tube2.Radius = 0.1
 
 # Extract the region of the scalar field with only the persistent features
 tTKTopologicalSimplification1 = TTKTopologicalSimplification(
@@ -46,8 +62,8 @@ tTKMorseSmaleComplex1.ScalarField = ["POINTS", "gradient"]
 # Extract the computed critical points from the Morse Smale complex
 criticalPoints = FindSource("TTKMorseSmaleComplex1__CriticalPoints")
 extractSurface = ExtractSurface(Input=criticalPoints)
-tTKIcospheresFromPoints1 = TTKIcospheresFromPoints(Input=tTKMorseSmaleComplex1)
-tTKIcospheresFromPoints1.Radius = 1.0
+tTKIcospheresFromPoints2 = TTKIcospheresFromPoints(Input=tTKMorseSmaleComplex1)
+tTKIcospheresFromPoints2.Radius = 1.0
 
 # Extract edges between saddles and extrema (1-separatrices) from the Morse Smale complex
 edgeThreshold = Threshold(Input=OutputPort(tTKMorseSmaleComplex1, 1))
@@ -62,5 +78,5 @@ tTKGeometrySmoother1.IterationNumber = 50
 cleantoGrid1 = CleantoGrid(Input=tTKGeometrySmoother1)
 tetrahedralize1 = Tetrahedralize(Input=cleantoGrid1)
 extractSurface1 = ExtractSurface(Input=tetrahedralize1)
-tube1 = Tube(Input=extractSurface1)
-tube1.Radius = 0.5
+tube3 = Tube(Input=extractSurface1)
+tube3.Radius = 1.0
