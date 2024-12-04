@@ -1,7 +1,7 @@
 # CS 553 Final Project
 ## Comparing Contour Line and Morse-Smale Methods for Highlighting Symmetry in Cryo-EM Image
 ### Rachel Xing & Naitik Alpesh Shah
-
+&nbsp;
 ### How to compile and run the Contour Line Visualization
 This is based on the program called "learnply" for scientific visualization provided by Prof. Eugene Zhang @ Oregon State University.
 
@@ -73,6 +73,7 @@ To load the file:
 3. Set the data directory to the folder where the project is unzipped.
 4. Click **OK** to run the visualization.
 
+&nbsp;
 #### How to compute the Morse-Smale Segmentation for any PNG image you want
 1. Import and preprocessing: 
    - Import a **.png** file into the **"data"** folder.  
