@@ -57,6 +57,8 @@ make
    3. Press the key `8` - Render contour lines with a bi-color scale (red for maxima, green for minima).  
    4. Press the key `9` - Render contour lines with a rainbow scale (red for maxima, blue for minima).  
 
+&nbsp;
+
 ### How to run the Morse-Smale Segmentation
 This is based on an open-source scientific visualization application called "Paraview" by Kitware Inc.
 
@@ -74,7 +76,6 @@ To load the file:
 3. Set the data directory to the folder where the project is unzipped.
 4. Click **OK** to run the visualization.
 
-&nbsp;
 #### How to compute the Morse-Smale Segmentation for any PNG image you want:
 1. Import and preprocessing: 
    - Import a **.png** file into the **"data"** folder.  
