@@ -76,10 +76,10 @@ To load the file:
 ```bash
 <Element index="0" value="/Users/rachelx000/Desktop/CS553FinalProject/data/emd_xxxxx.png"/>
 ```
-&nbsp; &nbsp; &nbsp; &nbsp;Replace the content in **value** with the correct local path to the PNG file. 
-3. Launch Paraview. In **File**, select **Load State** and choose the modified .pvsm file.
-4. In the **Load State Options** prompt, select **"Search files under specified directory"**.
-5. Set the data directory to the folder where the project is unzipped.
+&nbsp; &nbsp; &nbsp; &nbsp;Replace the content in **value** with the correct local path to the PNG file. <br/>
+3. Launch Paraview. In **File**, select **Load State** and choose the modified .pvsm file. <br/>
+4. In the **Load State Options** prompt, select **"Search files under specified directory"**. <br/>
+5. Set the data directory to the folder where the project is unzipped. <br/>
 6. Click **OK** to run the visualization.
 
 #### How to compute the Morse-Smale Segmentation for any PNG image you want:
