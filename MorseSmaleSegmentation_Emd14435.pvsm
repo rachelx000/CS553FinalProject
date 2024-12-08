@@ -16438,7 +16438,7 @@
     </Proxy>
     <Proxy group="sources" type="PNGSeriesReader" id="268675" servers="1">
       <Property name="FileNames" id="268675.FileNames" number_of_elements="1">
-        <Element index="0" value="emd_14435.png"/>
+        <Element index="0" value="/Users/rachelx000/Desktop/CS553FinalProject/data/emd_14435.png"/>
         <Domain name="files" id="268675.FileNames.files"/>
       </Property>
       <Property name="ReadAsImageStack" id="268675.ReadAsImageStack" number_of_elements="1">
