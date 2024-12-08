@@ -71,10 +71,16 @@ After installation:
 #### How to run the .pvsm file:
 There are three **.pvsm** files corresponding to saved Paraview states of the Morse-Smale segmentation for the three cryo-EM 2D projection images.
 To load the file:
-1. In **File**, select **Load State** and choose the .pvsm file you want to visualize.
-2. In the **Load State Options** prompt, select **"Search files under specified directory"**.
-3. Set the data directory to the folder where the project is unzipped.
-4. Click **OK** to run the visualization.
+1. Navigate to the **data** folder, copy the full path of the PNG image of interest.
+2. Open the corresponding **.pvsm** file in a text editor, use `Ctrl+F` to locate the following line:
+```bash
+<Element index="0" value="/Users/rachelx000/Desktop/CS553FinalProject/data/emd_xxxxx.png"/>
+```
+&nbsp; &nbsp; &nbsp; &nbsp;Replace the content in **value** with the correct local path to the PNG file. 
+3. Launch Paraview. In **File**, select **Load State** and choose the modified .pvsm file.
+4. In the **Load State Options** prompt, select **"Search files under specified directory"**.
+5. Set the data directory to the folder where the project is unzipped.
+6. Click **OK** to run the visualization.
 
 #### How to compute the Morse-Smale Segmentation for any PNG image you want:
 1. Import and preprocessing: 
