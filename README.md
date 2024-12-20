@@ -1,6 +1,6 @@
 # CS 553 Final Project
 ## Comparing Contour Line and Morse-Smale Methods for Highlighting Symmetry in Cryo-EM Image
-### Rachel Xing & Naitik Alpesh Shah
+### Rachel Xing
 
 &nbsp;
 ### How to compile and run the Contour Line Visualization
